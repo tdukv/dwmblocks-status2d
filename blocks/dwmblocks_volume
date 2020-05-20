@@ -1,0 +1,13 @@
+#!/bin/sh
+
+vol=$(pamixer --get-volume-human | tr -d '%')
+
+if [ "$vol" = "muted" ] || [ "$vol" -eq 0 ]; then
+    printf "🔇\n"
+elif [ "$vol" -gt 66 ]; then
+    printf "🔊%s%%\n" "$vol"
+elif [ "$vol" -gt 33 ]; then
+    printf "🔉%s%%\n" "$vol"
+else
+    printf "🔈%s%%\n" "$vol"
+fi

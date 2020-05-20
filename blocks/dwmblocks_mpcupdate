@@ -1,0 +1,6 @@
+#!/bin/sh
+while : ; do
+    mpc idle
+    date
+    pkill -RTMIN+11 dwmblocks
+done >> ~/.cache/logs/dwmmpcupdate.log

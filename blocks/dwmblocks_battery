@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# cap=$(sed  \"s/$/%/\" /sys/class/power_supply/BAT0/capacity)
+cap=$(cat /sys/class/power_supply/BAT0/capacity)
+
+# Use this for of icon once I clean up how colors are handled.
+# fullpx=$((pcnt/5))
+# emptpx=$((23-fullpx))
+# bat="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r${emptpx},5,${fullpx},8^^d^^f24^"
+
+
+if [ "$cap" -gt "87" ]; then
+	icon=""
+elif [ "$cap" -gt "62" ]; then
+	icon=""
+elif [ "$cap" -gt "37" ]; then
+	icon=""
+elif [ "$cap" -gt "12" ]; then
+	icon=""
+else
+	icon=""
+fi
+status=$(sed "s/Not charging/❌/; s/Charging//; s/[A-Za-z]*//" /sys/class/power_supply/BAT0/status)
+
+printf "%s%s %s%%\n" "$status" "$icon" "$cap"

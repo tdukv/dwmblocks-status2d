@@ -1,0 +1,3 @@
+#!/bin/sh
+
+timeout 0.5 curl -s wttr.in/?format=1 2>/dev/null | tr -d ' ' || printf "❌"

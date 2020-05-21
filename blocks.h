@@ -12,7 +12,7 @@ static const Block blocks[] =
 
    // Use to change to bg/fg to a pywal color #.
    // {"", "dwmblocks_color fg* bg*", 0, 10},
-   // Add 'pkill -RTMIN+10 dwmblocks' to wal script to update.
+   // Add 'pkill -x -RTMIN+10 dwmblocks' to wal script to update.
 
    /*Icon*/ /*Command*/	/*Update Interval*/ /*Update Signal*/
    {"",  "dwmblocks_color bg3 fg0",       0,     10},

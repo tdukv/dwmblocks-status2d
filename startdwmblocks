@@ -1,0 +1,6 @@
+#!/bin/sh
+while : ; do
+	date '+%F %T dwmblocks started'
+	dwmblocks 2>&1
+	date '+%F %T dwmblocks died'
+done >>~/.cache/logs/dwmblocks.log

@@ -24,13 +24,15 @@ static const Block blocks[] =
 
    {"",  "dwmblocks_color bg6 fg0",       0,     10},
    {"🔆", "xbacklight | cut -d '.' -f1",   0,     15},
-   //   {"",  "dwmblocks_color bg5 fg0",       0,     10},
+   //{"",  "dwmblocks_color bg5 fg0",       0,     10},
+   // The battery block sets it's own colors,
+   // since it needs them to 'draw' the icon.
    {"",  "dwmblocks_battery",            30,      9},
    {"",  "dwmblocks_color bg4 fg0",       0,     10},
    {"",  "dwmblocks_volume",              0,     12},
    {"",  "dwmblocks_color bg3 fg0",       0,     10},
-   {"",  "dwmblocks_weather",          1800,     14},
-   {"",  "dwmblocks_color bg2 fg0",       0,     10},
+   //{"",  "dwmblocks_weather",          1800,     14},
+   //{"",  "dwmblocks_color bg2 fg0",       0,     10},
    {"",  "dwmblocks_date",               20,      0},
 };
 

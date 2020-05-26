@@ -1,25 +1,17 @@
 #!/bin/sh
 
-# cap=$(sed  \"s/$/%/\" /sys/class/power_supply/BAT0/capacity)
 cap=$(cat /sys/class/power_supply/BAT0/capacity)
 
-# Use this for of icon once I clean up how colors are handled.
-# fullpx=$((pcnt/5))
-# emptpx=$((23-fullpx))
-# bat="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r${emptpx},5,${fullpx},8^^d^^f24^"
+# TODO: This is slow -v
+fg=$(xrdb -query | grep "*color0" | cut -d'#' -f2)
+bg=$(xrdb -query | grep "*color2" | cut -d'#' -f2)
+# TODO: This is slow -^
 
+fullpx=$((cap/6))
+emptpx=$((20-fullpx))
 
-if [ "$cap" -gt "87" ]; then
-	icon=""
-elif [ "$cap" -gt "62" ]; then
-	icon=""
-elif [ "$cap" -gt "37" ]; then
-	icon=""
-elif [ "$cap" -gt "12" ]; then
-	icon=""
-else
-	icon=""
-fi
+bat="^c#${bg}^^r0,0,28,19^^f4^^c#${fg}^^r0,7,2,4^^r2,4,20,10^^c#${bg}^^r3,5,18,8^^c#${fg}^^r${emptpx},6,${fullpx},6^^b#${bg}^^c#${fg}^^f24^"
+
 status=$(sed "s/Not charging/❌/; s/Charging//; s/[A-Za-z]*//" /sys/class/power_supply/BAT0/status)
 
-printf "%s%s %s%%\n" "$status" "$icon" "$cap"
+printf "%s%s%s%%\n" "$bat" "$status""$cap"

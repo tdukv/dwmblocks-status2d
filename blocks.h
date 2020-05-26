@@ -2,7 +2,7 @@
 static const Block blocks[] =
   {
    // Sigs:
-   //
+   //  9: battery
    // 10: colors
    // 11: mpd
    // 12: volume
@@ -24,8 +24,8 @@ static const Block blocks[] =
 
    {"",  "dwmblocks_color bg6 fg0",       0,     10},
    {"🔆", "xbacklight | cut -d '.' -f1",   0,     15},
-   {"",  "dwmblocks_color bg5 fg0",       0,     10},
-   {"",  "dwmblocks_battery",            30,      0},
+   //   {"",  "dwmblocks_color bg5 fg0",       0,     10},
+   {"",  "dwmblocks_battery",            30,      9},
    {"",  "dwmblocks_color bg4 fg0",       0,     10},
    {"",  "dwmblocks_volume",              0,     12},
    {"",  "dwmblocks_color bg3 fg0",       0,     10},

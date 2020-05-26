@@ -32,7 +32,7 @@ static Display *dpy;
 static int screen;
 static Window root;
 static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
-static char statusstr[2][1024];
+static char statusstr[2][2048];
 static int statusContinue = 1;
 static void (*writestatus) () = setroot;
 

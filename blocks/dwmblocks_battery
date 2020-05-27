@@ -5,7 +5,7 @@ cap=$(cat /sys/class/power_supply/BAT0/capacity)
 fullpx=$((cap/6))
 emptpx=$((20-fullpx))
 
-bat="^w^^r0,0,28,19^^f4^^w^^r0,7,2,4^^r2,4,20,10^^w^^r3,5,18,8^^w^^r${emptpx},6,${fullpx},6^^f24^"
+bat="^w^^r0,0,28,19^^f4^^w^^r0,7,2,5^^r2,4,20,11^^w^^r3,5,18,9^^w^^r${emptpx},6,${fullpx},7^^f24^"
 
 status=$(sed "s/Not charging/❌/; s/Charging//; s/[A-Za-z]*//" /sys/class/power_supply/BAT0/status)
 

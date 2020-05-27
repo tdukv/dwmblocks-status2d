@@ -18,9 +18,9 @@ static const Block blocks[] =
    {"",  "dwmblocks_color bg3 fg0",       0,     10},
    {"",  "dwmblocks_mpc",                 0,     11},
    {"",  "dwmblocks_color bg4 fg0",       0,     10},
-   {"💻", "free -h|awk '/^Mem/ { print $3\"/\"$2 }'|sed s/i//g",30, 0},
+   {"", "free -h|awk '/^Mem/ { print $3\"/\"$2 }'|sed s/i//g",30, 0},
    {"",  "dwmblocks_color bg5 fg0",       0,     10},
-   {"", "sed 's/000$/°C /' /sys/class/thermal/thermal_zone?/temp | tr -d '\n' && printf '\n'", 10, 0},
+   {"", "sed 's/000$/°C /' /sys/class/thermal/thermal_zone?/temp | paste -sd ''", 10, 0},
 
    {"",  "dwmblocks_color bg6 fg0",       0,     10},
    {"🔆", "xbacklight | cut -d '.' -f1",   0,     15},
@@ -33,7 +33,7 @@ static const Block blocks[] =
    {"",  "dwmblocks_color bg3 fg0",       0,     10},
    //{"",  "dwmblocks_weather",          1800,     14},
    //{"",  "dwmblocks_color bg2 fg0",       0,     10},
-   {"",  "dwmblocks_date",               20,      0},
+   {"",  "dwmblocks_date",               30,      0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

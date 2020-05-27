@@ -1,0 +1,20 @@
+#!/bin/sh
+
+gray=$(xrdb -query | grep "\*color8" | cut -d'#' -f2)
+
+home=$(df -h --output=pcent,avail ~ | tail -1)
+root=$(df -h --output=pcent,avail / | tail -1)
+
+hmpct=$(echo "$home" | cut -d'%' -f1)
+rtpct=$(echo "$root" | cut -d'%' -f1)
+
+hmfpx=$((1+hmpct/7))
+hmepx=$((17-hmfpx))
+
+rtfpx=$((1+rtpct/7))
+rtepx=$((17-rtfpx))
+
+hmbar="^v^^w^^r0,0,4,19^^c#${gray}^^r0,2,4,15^^t^^r0,${hmepx},4,${hmfpx}^^f4^"
+rtbar="^v^^w^^r0,0,4,19^^c#${gray}^^r0,2,4,15^^t^^r0,${rtepx},4,${rtfpx}^^f4^"
+
+printf "~: %s%s; /: %s%s\n" "$hmbar" "$home" "$rtbar" "$root"

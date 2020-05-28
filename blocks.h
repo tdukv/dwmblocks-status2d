@@ -14,15 +14,13 @@ static const Block blocks[] =
    // {"", "dwmblocks_color fg* bg*", 0, 10},
    // Add 'pkill -x -RTMIN+10 dwmblocks' to wal script to update.
 
-   /*Icon*/ /*Command*/	/*Update Interval*/ /*Update Signal*/
+   /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
    {"",  "dwmblocks_mpc",                 0,     11},
    {"",  "dwmblocks_color bg4 fg0",       0,     10},
    {"", "free -h|awk '/^Mem/ { print $3\"/\"$2 }'|sed s/i//g",30, 0},
 
-   {"", "dwmblocks_temp",                10,     13},
-
-   {"",  "dwmblocks_color bg6 fg0",       0,     10},
-   {"🔆", "xbacklight | cut -d '.' -f1",   0,     15},
+   {"",  "dwmblocks_temp",               10,     13},
+   {"",  "dwmblocks_backlight",           0,     15},
    {"",  "dwmblocks_battery",            30,      9},
    {"",  "dwmblocks_volume",              0,     12},
    //{"",  "dwmblocks_weather",          1800,     14},

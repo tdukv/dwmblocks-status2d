@@ -1,0 +1,5 @@
+#!/bin/sh
+
+printf "^C0^^B6^" # Set fg/bg color.
+
+printf "%s%.0f\n" "🔆" "$(xbacklight)"

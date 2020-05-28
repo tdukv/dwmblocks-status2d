@@ -6,7 +6,7 @@ static const Block blocks[] =
    // 10: colors
    // 11: mpd
    // 12: volume
-   // 13: // build too unstable to invite extra bad luck
+   // 13: temperature
    // 14: weather
    // 15: brightness
 
@@ -18,8 +18,8 @@ static const Block blocks[] =
    {"",  "dwmblocks_mpc",                 0,     11},
    {"",  "dwmblocks_color bg4 fg0",       0,     10},
    {"", "free -h|awk '/^Mem/ { print $3\"/\"$2 }'|sed s/i//g",30, 0},
-   {"",  "dwmblocks_color bg5 fg0",       0,     10},
-   {"", "sed 's/000$/°C /' /sys/class/thermal/thermal_zone?/temp | paste -sd ''", 10, 0},
+
+   {"", "dwmblocks_temp",                10,     13},
 
    {"",  "dwmblocks_color bg6 fg0",       0,     10},
    {"🔆", "xbacklight | cut -d '.' -f1",   0,     15},

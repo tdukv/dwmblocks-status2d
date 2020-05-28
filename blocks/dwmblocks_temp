@@ -1,0 +1,5 @@
+#!/bin/sh
+
+printf "^C0^^B5^" # Set fg/bg color.
+
+printf "%s%s\n" "" "$(sed 's/000$/°C/' /sys/class/thermal/thermal_zone?/temp | paste -sd ' ')"

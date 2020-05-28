@@ -1,5 +1,7 @@
 #!/bin/sh
 
+printf "^C0^^B2^" # Set fg/bg color.
+
 vol=$(pamixer --get-volume-human | tr -d '%')
 
 if [ "$vol" = "muted" ] || [ "$vol" -eq 0 ]; then

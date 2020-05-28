@@ -15,7 +15,6 @@ static const Block blocks[] =
    // Add 'pkill -x -RTMIN+10 dwmblocks' to wal script to update.
 
    /*Icon*/ /*Command*/	/*Update Interval*/ /*Update Signal*/
-   {"",  "dwmblocks_color bg3 fg0",       0,     10},
    {"",  "dwmblocks_mpc",                 0,     11},
    {"",  "dwmblocks_color bg4 fg0",       0,     10},
    {"", "free -h|awk '/^Mem/ { print $3\"/\"$2 }'|sed s/i//g",30, 0},
@@ -24,13 +23,9 @@ static const Block blocks[] =
 
    {"",  "dwmblocks_color bg6 fg0",       0,     10},
    {"🔆", "xbacklight | cut -d '.' -f1",   0,     15},
-   {"",  "dwmblocks_color bg5 fg0",       0,     10},
    {"",  "dwmblocks_battery",            30,      9},
-   {"",  "dwmblocks_color bg4 fg0",       0,     10},
    {"",  "dwmblocks_volume",              0,     12},
-   {"",  "dwmblocks_color bg3 fg0",       0,     10},
    //{"",  "dwmblocks_weather",          1800,     14},
-   //{"",  "dwmblocks_color bg2 fg0",       0,     10},
    {"",  "dwmblocks_date",               30,      0},
 };
 

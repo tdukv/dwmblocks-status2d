@@ -1,5 +1,7 @@
 #!/bin/sh
 
+printf "^C0^^B3^" # Set fg/bg color.
+
 status="$(mpc status | sed "/^volume/d; /^ERROR/d; s/\[paused\].*/ /; s/\[playing\].*/ /" | tac | tr -d '\n')"
 
 [ -z "$status" ] && printf "\n" || printf "%s\n" "$status"

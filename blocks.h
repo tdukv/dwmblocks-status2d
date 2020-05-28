@@ -10,10 +10,6 @@ static const Block blocks[] =
    // 14: weather
    // 15: brightness
 
-   // Use to change to bg/fg to a pywal color #.
-   // {"", "dwmblocks_color fg* bg*", 0, 10},
-   // Add 'pkill -x -RTMIN+10 dwmblocks' to wal script to update.
-
    /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
    {"",  "dwmblocks_mpc",                 0,     11},
    {"",  "dwmblocks_memory",             30,     10},

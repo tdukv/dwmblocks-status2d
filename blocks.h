@@ -3,7 +3,7 @@ static const Block blocks[] =
   {
    // Sigs:
    //  9: battery
-   // 10: colors
+   // 10: memory
    // 11: mpd
    // 12: volume
    // 13: temperature
@@ -16,9 +16,7 @@ static const Block blocks[] =
 
    /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
    {"",  "dwmblocks_mpc",                 0,     11},
-   {"",  "dwmblocks_color bg4 fg0",       0,     10},
-   {"", "free -h|awk '/^Mem/ { print $3\"/\"$2 }'|sed s/i//g",30, 0},
-
+   {"",  "dwmblocks_memory",             30,     10},
    {"",  "dwmblocks_temp",               10,     13},
    {"",  "dwmblocks_backlight",           0,     15},
    {"",  "dwmblocks_battery",            30,      9},

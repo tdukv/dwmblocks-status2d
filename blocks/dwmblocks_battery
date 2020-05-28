@@ -11,4 +11,4 @@ bat="^w^^r0,0,28,19^^f4^^w^^r0,7,2,5^^r2,4,20,11^^w^^r3,5,18,9^^w^^r${emptpx},6,
 
 status=$(sed "s/Not charging/❌/; s/Charging//; s/[A-Za-z]*//" /sys/class/power_supply/BAT0/status)
 
-printf "%s%s%s%%\n" "$bat" "$status""$cap"
+printf "%s%s%s%%\n" "$bat" "$status" "$cap"

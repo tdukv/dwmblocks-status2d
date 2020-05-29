@@ -2,8 +2,23 @@
 
 printf "^C4^["
 
-# TODO: clean up code, remove awk
-# TODO: add fancy percent bars like in the disk script
-printf "%s%s" "" "$(free -h|awk '/^Mem/ { print $3"/"$2 }'|sed s/i//g)"
+# tr + cut still faster than awk
+meminfo=$(head -3 /proc/meminfo | tr -s ' ' | cut -d ' ' -f 2)
+
+totl=$(echo "$meminfo" | head -n 1)
+free=$(echo "$meminfo" | sed '2!d')
+avai=$(echo "$meminfo" | tail -n 1)
+
+used=$(((totl-avai)/1024))
+
+avepx=$((2+14*avai/totl))
+avfpx=$((17-avepx))
+
+frepx=$((2+14*free/totl))
+frfpx=$((17-frepx))
+
+bar="^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^C1^^r0,${frepx},4,${frfpx}^^C3^^r0,${avepx},4,${avfpx}^^f4^^t^"
+
+printf "%s %s %sM" "" "$bar" "$used"
 
 printf "]^d^\n"

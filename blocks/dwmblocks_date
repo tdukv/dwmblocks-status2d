@@ -1,6 +1,6 @@
 #!/bin/sh
 
-printf "^C0^^B3^" # Set fg/bg color.
+printf "^C3^["
 
 hour=$(date '+%I')
 min=$(date '+%M')
@@ -58,4 +58,4 @@ else
     esac
 fi
 
-date "+cal%a %d %b clk%R" | sed "s/cal/📅/; s/clk/$icon/"
+date "+cal%a %d %b clk%R]^d^" | sed "s/cal/📅/; s/clk/$icon/"

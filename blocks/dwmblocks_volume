@@ -1,15 +1,17 @@
 #!/bin/sh
 
-printf "^C0^^B2^" # Set fg/bg color.
+printf "^C2^["
 
 vol=$(pamixer --get-volume-human | tr -d '%')
 
 if [ "$vol" = "muted" ] || [ "$vol" -eq 0 ]; then
-    printf "🔇\n"
+    printf "🔇"
 elif [ "$vol" -gt 66 ]; then
-    printf "🔊%s%%\n" "$vol"
+    printf "🔊%s%%" "$vol"
 elif [ "$vol" -gt 33 ]; then
-    printf "🔉%s%%\n" "$vol"
+    printf "🔉%s%%" "$vol"
 else
-    printf "🔈%s%%\n" "$vol"
+    printf "🔈%s%%" "$vol"
 fi
+
+printf "]^d^\n"

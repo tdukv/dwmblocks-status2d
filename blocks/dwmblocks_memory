@@ -1,7 +1,9 @@
 #!/bin/sh
 
-printf "^C0^^B4^" # Set fg/bg color.
+printf "^C4^["
 
 # TODO: clean up code, remove awk
 # TODO: add fancy percent bars like in the disk script
-printf "%s%s\n" "" "$(free -h|awk '/^Mem/ { print $3"/"$2 }'|sed s/i//g)"
+printf "%s%s" "" "$(free -h|awk '/^Mem/ { print $3"/"$2 }'|sed s/i//g)"
+
+printf "]^d^\n"

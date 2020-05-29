@@ -2,6 +2,7 @@
 static const Block blocks[] =
   {
    // Sigs:
+   //  8: diskspace
    //  9: battery
    // 10: memory
    // 11: mpd
@@ -12,6 +13,7 @@ static const Block blocks[] =
 
    /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
    {"",  "dwmblocks_mpc",                 0,     11},
+   {"",  "dwmblocks_disk",              300,      8},
    {"",  "dwmblocks_memory",             30,     10},
    {"",  "dwmblocks_temp",               10,     13},
    {"",  "dwmblocks_backlight",           0,     15},

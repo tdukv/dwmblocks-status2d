@@ -1,8 +1,8 @@
 #!/bin/sh
 
-printf "^C3^["
+printf "^C2^["
 
-status="$(mpc status | sed "/^volume/d; /^ERROR/d; s/\[paused\].*/ /; s/\[playing\].*/ /" | tac | tr -d '\n')"
+status="$(mpc status | sed "/^volume/d; /^ERROR/d; s/\[paused\].*/ /; s/\[playing\].*/ /" | tac | tr -d '\n' | cut -c 1-30)"
 
 [ -z "$status" ] && printf "" || printf "%s" "$status"
 

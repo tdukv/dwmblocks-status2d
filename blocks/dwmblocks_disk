@@ -1,9 +1,9 @@
 #!/bin/sh
 
-printf "^C0^^B5^" # Set fg/bg color.
+printf "^C3^[" # Set fg/bg color.
 
-home=$(df -h --output=pcent,avail ~ | tail -1)
-root=$(df -h --output=pcent,avail / | tail -1)
+home=$(df -h --output=pcent,avail ~ | tail -1 | tr -s ' ')
+root=$(df -h --output=pcent,avail / | tail -1 | tr -s ' ')
 
 hmpct=$(echo "$home" | cut -d'%' -f1)
 rtpct=$(echo "$root" | cut -d'%' -f1)
@@ -17,4 +17,8 @@ rtepx=$((17-rtfpx))
 hmbar="^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^t^^r0,${hmepx},4,${hmfpx}^^f4^"
 rtbar="^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^t^^r0,${rtepx},4,${rtfpx}^^f4^"
 
-printf "~: %s%s ^B6^ /: %s%s^d^\n" "$hmbar" "$home" "$rtbar" "$root"
+# TODO: Add back numbers when there is
+# more space to fit them (extra bar).
+printf "~ %s | / %s" "$hmbar" "$rtbar"
+
+printf "]^d^\n"

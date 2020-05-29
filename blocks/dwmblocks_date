@@ -58,4 +58,4 @@ else
     esac
 fi
 
-date "+cal%a %d %b clk%R]^d^" | sed "s/cal/📅/; s/clk/$icon/"
+date "+%a %d %b clk%R]^d^" | sed "s/clk/$icon/"

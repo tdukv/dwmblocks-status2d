@@ -7,7 +7,7 @@
 # Reloads only values that can change during sleep. #
 #####################################################
 
-if pgrep -x dwmblocks; then
+if pgrep -x dwmblocks >> /dev/null ; then
     pkill -x -RTMIN+7  dwmblocks # time
     pkill -x -RTMIN+9  dwmblocks # battery
     pkill -x -RTMIN+13 dwmblocks # temp

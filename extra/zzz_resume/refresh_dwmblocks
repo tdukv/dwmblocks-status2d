@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#####################################################
+# If using 'zzz' for sleep (runit), put this in     #
+# /etc/zzz.d/resume/, to reload some blocks         #
+# immediately after suspend/hiberante exit.         #
+# Reloads only values that can change during sleep. #
+#####################################################
+
+if pgrep -x dwmblocks; then
+    pkill -x -RTMIN+7  dwmblocks # time
+    pkill -x -RTMIN+9  dwmblocks # battery
+    pkill -x -RTMIN+13 dwmblocks # temp
+fi

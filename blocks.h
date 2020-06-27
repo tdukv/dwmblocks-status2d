@@ -2,6 +2,7 @@
 static const Block blocks[] =
   {
    // Sigs:
+   //  7: date/time
    //  8: diskspace
    //  9: battery
    // 10: memory
@@ -19,8 +20,8 @@ static const Block blocks[] =
    {"",  "dwmblocks_backlight",           0,     15},
    {"",  "dwmblocks_battery",            30,      9},
    {"",  "dwmblocks_volume",              0,     12},
-   //{"",  "dwmblocks_weather",          1800,     14},
-   {"",  "dwmblocks_date",               30,      0},
+/* {"",  "dwmblocks_weather",          1800,     14}, */
+   {"",  "dwmblocks_date",               30,      7},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

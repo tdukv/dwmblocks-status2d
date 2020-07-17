@@ -1,6 +1,6 @@
 #!/bin/sh
 
-printf "^C2^["
+printf "^C2^ "
 
 vol=$(pamixer --get-volume-human | tr -d '%')
 
@@ -14,4 +14,4 @@ else
     printf "🔈%s%%" "$vol"
 fi
 
-printf "]^d^\n"
+printf " ^d^\n"

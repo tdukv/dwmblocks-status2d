@@ -1,6 +1,6 @@
 #!/bin/sh
 
-printf "^C3^["
+printf "^C3^ "
 
 hour=$(date '+%I')
 min=$(date '+%M')
@@ -58,4 +58,4 @@ else
     esac
 fi
 
-date "+%a %d %b clk%R]^d^" | sed "s/clk/$icon/"
+date "+%a %d %b clk%R^d^" | sed "s/clk/$icon/"

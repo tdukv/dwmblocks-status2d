@@ -7,11 +7,11 @@ vol=$(pamixer --get-volume-human | tr -d '%')
 if [ "$vol" = "muted" ] || [ "$vol" -eq 0 ]; then
     printf "🔇"
 elif [ "$vol" -gt 66 ]; then
-    printf "🔊%s%%" "$vol"
+    printf "🔊%3s%%" "$vol"
 elif [ "$vol" -gt 33 ]; then
-    printf "🔉%s%%" "$vol"
+    printf "🔉%3s%%" "$vol"
 else
-    printf "🔈%s%%" "$vol"
+    printf "🔈%3s%%" "$vol"
 fi
 
 printf " ^d^\n"

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Based on
+# http://colby.id.au/calculating-cpu-usage-from-proc-stat/
+
+### !!! Requres bash, does not work in POSIX sh !!! ###
+
+
 prev_file='/tmp/cpumon_prev'
 
 while read -r cpu; do
@@ -17,7 +23,6 @@ while read -r cpu; do
         prev_total="${prev##* }"
         prev_idle="${prev%% *}"
     fi
-#    echo "$id $idle / $total ; $prev_idle / $prev_total"
     echo "$idle $total" > "${prev_file}_${id}"
 
     diff_idle=$((idle-prev_idle))

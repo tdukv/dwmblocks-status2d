@@ -14,7 +14,7 @@ static const Block blocks[] =
    // 15: brightness
 
    /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
-   {"",  "dwmblocks_mpc",                 0,     11},
+   {"",  "dwmblocks_mpd",                 0,     11},
    {"",  "dwmblocks_disk",              300,      8},
    {"",  "dwmblocks_memory",             30,     10},
    {"",  "dwmblocks_cpu",                10,      6},

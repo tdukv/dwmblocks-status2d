@@ -5,6 +5,7 @@
 
 ### !!! Requres bash, does not work in POSIX sh !!! ###
 
+printf "^C1^ 💻 " # Set fg/bg color.
 
 prev_file='/tmp/cpumon_prev'
 
@@ -29,9 +30,15 @@ while read -r cpu; do
     diff_total=$((total-prev_total))
     diff_usage=$(((1000*(diff_total-diff_idle)/diff_total+5)/10))
 
-    printf "%s%% " $diff_usage
+######## bar output
+    fpx=$((1+diff_usage/7))
+    epx=$((17-fpx))
+    printf "^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^t^^r0,%s,4,%s^^f8^" $epx $fpx
+######## text output
+#    printf "%2s%% " $diff_usage
+
 done <<EOT
     $(grep '^cpu[0-9]\+\s*' /proc/stat)
 EOT
 
-printf "\n"
+printf "^d^\n"

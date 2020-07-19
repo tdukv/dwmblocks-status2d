@@ -2,6 +2,7 @@
 static const Block blocks[] =
   {
    // Sigs:
+   //  6: cpu
    //  7: date/time
    //  8: diskspace
    //  9: battery
@@ -16,6 +17,7 @@ static const Block blocks[] =
    {"",  "dwmblocks_mpc",                 0,     11},
    {"",  "dwmblocks_disk",              300,      8},
    {"",  "dwmblocks_memory",             30,     10},
+   {"",  "dwmblocks_cpu",                10,      6},
    {"",  "dwmblocks_temp",               10,     13},
    {"",  "dwmblocks_backlight",           0,     15},
    {"",  "dwmblocks_battery",            30,      9},

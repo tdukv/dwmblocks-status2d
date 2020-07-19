@@ -7,7 +7,8 @@ clean:
 install: output
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f dwmblocks $(DESTDIR)$(PREFIX)/bin
-	cp -f blocks/dwmblocks* $(DESTDIR)$(PREFIX)/bin
+	cp -f blocks/sh/dwmblocks* $(DESTDIR)$(PREFIX)/bin
+	cp -f blocks/bash/dwmblocks* $(DESTDIR)$(PREFIX)/bin
 	cp -f startdwmblocks $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dwmblocks*
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/startdwmblocks

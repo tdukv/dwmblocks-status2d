@@ -2,6 +2,6 @@
 
 printf "^C6^ "
 
-printf "%s%.0f" "🔆" "$(xbacklight)"
+printf "%s%3.0f" "🔆" "$(xbacklight)"
 
 printf " ^d^\n"

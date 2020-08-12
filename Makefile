@@ -10,9 +10,9 @@ install: output
 	cp -f blocks/sh/dwmblocks* $(DESTDIR)$(PREFIX)/bin
 	cp -f blocks/bash/dwmblocks* $(DESTDIR)$(PREFIX)/bin
 	cp -f monitors/dwmblocks* $(DESTDIR)$(PREFIX)/bin
-	cp -f startdwmblocks $(DESTDIR)$(PREFIX)/bin
+	cp -f statusbar $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dwmblocks*
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/startdwmblocks
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/statusbar
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/dwmblocks*
-	rm -f $(DESTDIR)$(PREFIX)/bin/startdwmblocks
+	rm -f $(DESTDIR)$(PREFIX)/bin/statusbar

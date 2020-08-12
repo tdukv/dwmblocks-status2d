@@ -5,14 +5,15 @@ output: dwmblocks.c blocks.h
 clean:
 	rm -f *.o *.gch dwmblocks
 install: output
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp -f dwmblocks $(DESTDIR)$(PREFIX)/bin
-	cp -f blocks/sh/dwmblocks* $(DESTDIR)$(PREFIX)/bin
-	cp -f blocks/bash/dwmblocks* $(DESTDIR)$(PREFIX)/bin
-	cp -f monitors/dwmblocks* $(DESTDIR)$(PREFIX)/bin
-	cp -f statusbar $(DESTDIR)$(PREFIX)/bin
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/dwmblocks*
+	mkdir -p $(DESTDIR)$(PREFIX)/bin/dwmblocks
+	cp -f dwmblocks $(DESTDIR)$(PREFIX)/bin/dwmblocks
+	cp -f blocks/sh/dwmblocks* $(DESTDIR)$(PREFIX)/bin/dwmblocks
+	cp -f blocks/bash/dwmblocks* $(DESTDIR)$(PREFIX)/bin/dwmblocks
+	cp -f monitors/dwmblocks* $(DESTDIR)$(PREFIX)/bin/dwmblocks
+	sed "s|PREFIX|${PREFIX}|g" < statusbar > $(DESTDIR)$(PREFIX)/bin/statusbar
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/dwmblocks/dwmblocks*
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/statusbar
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/dwmblocks*
+	rm -f $(DESTDIR)$(PREFIX)/bin/dwmblocks/dwmblocks*
 	rm -f $(DESTDIR)$(PREFIX)/bin/statusbar
+	rmdir $(DESTDIR)$(PREFIX)/bin/dwmblocks

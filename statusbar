@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH="PREFIX/bin/dwmblocks:$PATH"
+
 dwmblocks_monitor_mpd &
 
 while : ; do

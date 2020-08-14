@@ -2,18 +2,16 @@
 
 printf "^C2^ "
 
-vol=$(pamixer --get-volume)
-
-if pamixer --get-mute > /dev/null ; then
-    printf "🔇%3s%%" "$vol"
-elif [ "$vol" -eq 0 ]; then
-    printf "🔇%3s%%" "$vol"
-elif [ "$vol" -gt 66 ]; then
-    printf "🔊%3s%%" "$vol"
-elif [ "$vol" -gt 33 ]; then
-    printf "🔉%3s%%" "$vol"
+if vol=$(pamixer --get-volume --get-mute) ; then
+    printf "🔇%3s%%" "${vol##* }"
+elif [ "${vol##* }" -eq 0 ]; then
+    printf "🔇%3s%%" "${vol##* }"
+elif [ "${vol##* }" -gt 66 ]; then
+    printf "🔊%3s%%" "${vol##* }"
+elif [ "${vol##* }" -gt 33 ]; then
+    printf "🔉%3s%%" "${vol##* }"
 else
-    printf "🔈%3s%%" "$vol"
+    printf "🔈%3s%%" "${vol##* }"
 fi
 
 printf " ^d^\n"

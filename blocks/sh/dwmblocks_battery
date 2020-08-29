@@ -1,6 +1,6 @@
 #!/bin/sh
 
-printf "^C1^ "
+printf "^C1^"
 
 cap=$(cat /sys/class/power_supply/BAT0/capacity)
 
@@ -13,4 +13,4 @@ status=$(sed "s/Not charging/❌/; s/Charging//; s/[A-Za-z]*//" /sys/class/po
 
 printf "%s%s%s%%" "$bat" "$status" "$cap"
 
-printf " ^d^\n"
+printf "^d^\n"

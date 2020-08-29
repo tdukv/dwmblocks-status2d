@@ -22,7 +22,7 @@ static const Block blocks[] =
    {"",  "dwmblocks_backlight",           0,     15},
    {"",  "dwmblocks_battery",            30,      9},
    {"",  "dwmblocks_volume",              0,     12},
-/* {"",  "dwmblocks_weather",          1800,     14}, */
+   {"",  "dwmblocks_weather",          1800,     14},
    {"",  "dwmblocks_date",               30,      7},
 };
 

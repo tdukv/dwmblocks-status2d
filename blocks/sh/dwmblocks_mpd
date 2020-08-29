@@ -1,9 +1,9 @@
 #!/bin/sh
 
-printf "^C2^ "
+printf "^C2^"
 
 status="$(mpc status | sed "/^volume/d; /^ERROR/d; s/\[paused\].*/ /; s/\[playing\].*/ /" | tac | tr -d '\n' | cut -c 1-30)"
 
 [ -z "$status" ] && printf "" || printf "%s" "$status"
 
-printf " ^d^\n"
+printf "^d^\n"

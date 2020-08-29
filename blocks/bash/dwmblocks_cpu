@@ -5,7 +5,7 @@
 
 ### !!! Requres bash, does not work in POSIX sh !!! ###
 
-printf "^C1^ 💻 " # Set fg/bg color.
+printf "^C1^💻 " # Set fg/bg color.
 
 prev_file='/tmp/cpumon_prev'
 

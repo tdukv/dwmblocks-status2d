@@ -1,7 +1,8 @@
 #!/bin/sh
 
-printf "^C6^" # Set fg/bg color.
 
-timeout 0.5 curl -s wttr.in/?format=1 2>/dev/null | tr -d ' ' || printf "❌"
+wttr=$(timeout 0.5 curl -s wttr.in/?format=1 2>/dev/null | tr -d ' ')
 
-printf "^d^"
+[ -z "$wttr" ] && printf "^C1^❌" || printf "^C6^%s" "$wttr"
+
+printf "^d^\n"

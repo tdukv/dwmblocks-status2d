@@ -3,6 +3,6 @@
 
 wttr=$(timeout 0.75 curl -s wttr.in/Plovdiv?format=1 2>/dev/null | tr -d ' ')
 
-[ -z "$wttr" ] && printf "^C1^❌" || printf "^C6^%s" "$wttr"
+[ -z "$wttr" ] && printf "^C1^❌ Err." || printf "^C6^%s" "$wttr"
 
 printf "^d^\n"

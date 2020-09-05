@@ -15,6 +15,6 @@ avfpx=$((17-avepx))
 frepx=$((2+14*free/totl))
 frfpx=$((17-frepx))
 
-bar="^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^C3^^r0,${frepx},4,${frfpx}^^C4^^r0,${avepx},4,${avfpx}^^f4^^t^"
+bar="^v^^w^^r0,0,9,19^^C8^^r0,2,9,15^^t^^r0,${frepx},4,${frfpx}^^f4^^w^^r0,2,1,15^^w^^f1^^r0,${avepx},4,${avfpx}^^f4^"
 
 printf "%s %s %sM\n" "" "$bar" "$used"

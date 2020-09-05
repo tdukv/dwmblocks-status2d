@@ -31,10 +31,11 @@ while read -r cpu; do
 ######## bar output
     fpx=$((1+diff_usage/7))
     epx=$((17-fpx))
-    printf "^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^t^^r0,%s,4,%s^^f8^" $epx $fpx
+    printf "^v^^w^^r0,0,8,19^^C8^^r0,2,4,15^^t^^r0,%s,4,%s^^f8^" $epx $fpx
 ######## text output
 #    printf "%2s%% " $diff_usage
 
 done <<EOT
     $(grep '^cpu[0-9]\+\s*' /proc/stat)
 EOT
+printf "\n"

@@ -1,0 +1,98 @@
+diff --git a/dwmblocks.c b/dwmblocks.c
+index 20a919d..978e159 100644
+--- a/dwmblocks.c
++++ b/dwmblocks.c
+@@ -14,6 +14,9 @@ typedef struct {
+ 	unsigned int signal;
+ } Block;
+ void sighandler(int num);
++#ifdef CLICKABLE
++void buttonhandler(int sig, siginfo_t *si, void *ucontext);
++#endif
+ void getcmds(int time);
+ #ifndef __OpenBSD__
+ void getsigcmds(int signal);
+@@ -33,15 +36,40 @@ static int screen;
+ static Window root;
+ static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
+ static char statusstr[2][2048];
++#ifdef CLICKABLE
++static char button[] = "\0";
++#endif
+ static int statusContinue = 1;
+ static void (*writestatus) () = setroot;
+ 
+ //opens process *cmd and stores output in *output
+ void getcmd(const Block *block, char *output)
+ {
++#ifdef CLICKABLE
++	if (block->signal)
++	{
++		output[0] = block->signal;
++		output++;
++	}
++#endif
+ 	strcpy(output, block->icon);
+ 	char *cmd = block->command;
+-	FILE *cmdf = popen(cmd,"r");
++	FILE *cmdf;
++#ifdef CLICKABLE
++	if (*button)
++	{
++		setenv("BUTTON", button, 1);
++		cmdf = popen(cmd,"r");
++		*button = '\0';
++		unsetenv("BUTTON");
++	}
++	else
++	{
++		cmdf = popen(cmd,"r");
++	}
++#else
++	cmdf = popen(cmd,"r");
++#endif
+ 	if (!cmdf)
+ 		return;
+ 	char c;
+@@ -79,12 +107,24 @@ void getsigcmds(int signal)
+ 
+ void setupsignals()
+ {
++#ifdef CLICKABLE
++	struct sigaction sa;
++#endif
+ 	for(int i = 0; i < LENGTH(blocks); i++)
+ 	{	  
+ 		if (blocks[i].signal > 0)
++		{
+ 			signal(SIGRTMIN+blocks[i].signal, sighandler);
++#ifdef CLICKABLE
++			sigaddset(&sa.sa_mask, SIGRTMIN+blocks[i].signal); // ignore signal when handling SIGUSR1
++#endif
++		}
+ 	}
+-
++#ifdef CLICKABLE
++	sa.sa_sigaction = buttonhandler;
++	sa.sa_flags = SA_SIGINFO;
++	sigaction(SIGUSR1, &sa, NULL);
++#endif
+ }
+ #endif
+ 
+@@ -143,6 +183,15 @@ void sighandler(int signum)
+ 	getsigcmds(signum-SIGRTMIN);
+ 	writestatus();
+ }
++
++#ifdef CLICKABLE
++void buttonhandler(int sig, siginfo_t *si, void *ucontext)
++{
++	*button = '0' + si->si_value.sival_int & 0xff;
++	getsigcmds(si->si_value.sival_int >> 8);
++	writestatus();
++}
++#endif
+ #endif
+ 
+ void termhandler(int signum)

@@ -58,9 +58,9 @@ void getcmd(const Block *block, char *output)
 	i = strlen(output);
 	if (i == 0)//return if block and command output are both empty
 		return;
+	//only chop off newline if one is present at the end
+	i = output[i-1] == '\n' ? i-1 : i;
 	if (delim[0] != '\0') {
-		//only chop off newline if one is present at the end
-		i = output[i-1] == '\n' ? i-1 : i;
 		strncpy(output+i, delim, delimLen); 
 	}
 	else

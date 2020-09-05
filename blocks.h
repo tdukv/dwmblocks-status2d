@@ -15,15 +15,15 @@ static char fg6[] = "^C6^";
 static char fg7[] = "^C7^";
 static char fg8[] = "^C8^";
 
-static char bg0[] = "^C0^^B0^";
-static char bg1[] = "^C0^^B1^";
-static char bg2[] = "^C0^^B2^";
-static char bg3[] = "^C0^^B3^";
-static char bg4[] = "^C0^^B4^";
-static char bg5[] = "^C0^^B5^";
-static char bg6[] = "^C0^^B6^";
-static char bg7[] = "^C0^^B7^";
-static char bg8[] = "^C0^^B8^";
+static char bg0[] = "^C0^^B0^ ";
+static char bg1[] = "^C0^^B1^ ";
+static char bg2[] = "^C0^^B2^ ";
+static char bg3[] = "^C0^^B3^ ";
+static char bg4[] = "^C0^^B4^ ";
+static char bg5[] = "^C0^^B5^ ";
+static char bg6[] = "^C0^^B6^ ";
+static char bg7[] = "^C0^^B7^ ";
+static char bg8[] = "^C0^^B8^ ";
 
 static Block blocks[] =
   {
@@ -40,18 +40,18 @@ static Block blocks[] =
    // 15: brightness
 
    /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
-   {fg2,  "dwmblocks_mpd",                 0,     11},
-   {fg3,  "dwmblocks_disk",              300,      8},
-   {fg4,  "dwmblocks_memory",             30,     10},
-   {fg1,  "dwmblocks_cpu",                10,      6},
-   {fg5,  "dwmblocks_temp",               10,     13},
-   {fg6,  "dwmblocks_backlight",           0,     15},
-   {fg1,  "dwmblocks_battery",            30,      9},
-   {fg2,  "dwmblocks_volume",              0,     12},
-   //   {fg6,  "dwmblocks_weather",          1800,     14},
-   {fg3,  "dwmblocks_date",               30,      7},
+   {bg6,  "dwmblocks_mpd",                 0,     11},
+   {bg4,  "dwmblocks_disk",              300,      8},
+   {bg6,  "dwmblocks_memory",             30,     10},
+   {bg2,  "dwmblocks_cpu",                10,      6},
+   {bg6,  "dwmblocks_temp",               10,     13},
+   {bg4,  "dwmblocks_backlight",           0,     15},
+   {bg6,  "dwmblocks_battery",            30,      9},
+   {bg2,  "dwmblocks_volume",              0,     12},
+   //   {bg6,  "dwmblocks_weather",          1800,     14},
+   {bg4,  "dwmblocks_date",               30,      7},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
-static char delim[] = "^d^|";
+static char delim[] = " ^d^";
 static unsigned int delimLen = 5;

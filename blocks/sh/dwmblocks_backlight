@@ -1,7 +1,3 @@
 #!/bin/sh
 
-printf "^C6^"
-
-printf "%s%3.0f" "🔆" "$(xbacklight)"
-
-printf "^d^\n"
+printf "%s%3.0f\n" "🔆" "$(xbacklight)"

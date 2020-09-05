@@ -1,7 +1,3 @@
 #!/bin/sh
 
-printf "^C5^"
-
-printf "%s%s" "" "$(sed 's/000$/°C/' /sys/class/thermal/thermal_zone?/temp | paste -sd ' ')"
-
-printf "^d^\n"
+printf "%s%s\n" "" "$(sed 's/000$/°C/' /sys/class/thermal/thermal_zone?/temp | paste -sd ' ')"

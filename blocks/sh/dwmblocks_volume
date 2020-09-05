@@ -1,17 +1,14 @@
 #!/bin/sh
 
-printf "^C2^"
-
 if vol=$(pamixer --get-volume --get-mute) ; then
-    printf "🔇%3s%%" "${vol##* }"
+    printf "🔇%3s%%\n" "${vol##* }"
 elif [ "${vol##* }" -eq 0 ]; then
-    printf "🔇%3s%%" "${vol##* }"
+    printf "🔇%3s%%\n" "${vol##* }"
 elif [ "${vol##* }" -gt 66 ]; then
-    printf "🔊%3s%%" "${vol##* }"
+    printf "🔊%3s%%\n" "${vol##* }"
 elif [ "${vol##* }" -gt 33 ]; then
-    printf "🔉%3s%%" "${vol##* }"
+    printf "🔉%3s%%\n" "${vol##* }"
 else
-    printf "🔈%3s%%" "${vol##* }"
+    printf "🔈%3s%%\n" "${vol##* }"
 fi
 
-printf "^d^\n"

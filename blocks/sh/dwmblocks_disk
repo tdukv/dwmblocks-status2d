@@ -1,7 +1,5 @@
 #!/bin/sh
 
-printf "^C3^" # Set fg/bg color.
-
 home=$(df -h --output=pcent,avail ~ | tail -1 | tr -s ' ')
 root=$(df -h --output=pcent,avail / | tail -1 | tr -s ' ')
 
@@ -19,6 +17,4 @@ rtbar="^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^t^^r0,${rtepx},4,${rtfpx}^^f4^"
 
 # TODO: Add back numbers when there is
 # more space to fit them (extra bar).
-printf "~ %s | / %s" "$hmbar" "$rtbar"
-
-printf "^d^\n"
+printf "~ %s | / %s\n" "$hmbar" "$rtbar"

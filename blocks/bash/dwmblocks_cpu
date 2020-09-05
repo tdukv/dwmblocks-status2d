@@ -3,11 +3,9 @@
 # Based on
 # http://colby.id.au/calculating-cpu-usage-from-proc-stat/
 
-### !!! Requres bash, does not work in POSIX sh !!! ###
-
-printf "^C1^💻 " # Set fg/bg color.
-
 prev_file='/tmp/cpumon_prev'
+
+printf "💻 "
 
 while read -r cpu; do
     cpu=($cpu)
@@ -40,5 +38,3 @@ while read -r cpu; do
 done <<EOT
     $(grep '^cpu[0-9]\+\s*' /proc/stat)
 EOT
-
-printf "^d^\n"

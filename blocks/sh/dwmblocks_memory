@@ -1,7 +1,5 @@
 #!/bin/sh
 
-printf "^C4^"
-
 # tr + cut still faster than awk
 meminfo=$(head -3 /proc/meminfo | tr -s ' ' | cut -d ' ' -f 2)
 
@@ -19,6 +17,4 @@ frfpx=$((17-frepx))
 
 bar="^v^^w^^r0,0,4,19^^C8^^r0,2,4,15^^C3^^r0,${frepx},4,${frfpx}^^C4^^r0,${avepx},4,${avfpx}^^f4^^t^"
 
-printf "%s %s %sM" "" "$bar" "$used"
-
-printf "^d^\n"
+printf "%s %s %sM\n" "" "$bar" "$used"

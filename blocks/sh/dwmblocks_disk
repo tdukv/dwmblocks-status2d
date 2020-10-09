@@ -1,10 +1,9 @@
 #!/bin/sh
 
-home=$(df -h --output=pcent,avail ~ | tail -1 | tr -s ' ')
-root=$(df -h --output=pcent,avail / | tail -1 | tr -s ' ')
+dfout=$(df -h --output=pcent ~ / | tr -d '[:alpha:]%\n')
 
-hmpct=$(echo "$home" | cut -d'%' -f1)
-rtpct=$(echo "$root" | cut -d'%' -f1)
+hmpct=${dfout% *}
+rtpct=${dfout##* }
 
 hmfpx=$((1+hmpct/7))
 hmepx=$((17-hmfpx))

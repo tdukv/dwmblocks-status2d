@@ -1,60 +1,41 @@
 #!/bin/sh
 
-hourmin=$(date '+%I;%M')
-hour=${hourmin%;*}
-min=${hourmin#*;}
+hourmin=$(date -d "+15min" '+%I;%M')
 
-if [ "$min" -lt "15" ]; then
-    case "$hour" in
-        "00") icon="🕛" ;;
-        "01") icon="🕐" ;;
-        "02") icon="🕑" ;;
-        "03") icon="🕒" ;;
-        "04") icon="🕓" ;;
-        "05") icon="🕔" ;;
-        "06") icon="🕕" ;;
-        "07") icon="🕖" ;;
-        "08") icon="🕗" ;;
-        "09") icon="🕘" ;;
-        "10") icon="🕙" ;;
-        "11") icon="🕚" ;;
-        "12") icon="🕛" ;;
-        *) icon="Err!";;
-    esac
-elif [ "$min" -lt "45" ]; then
-    case "$hour" in
-        "00") icon="🕜" ;;
-        "01") icon="🕝" ;;
-        "02") icon="🕝" ;;
-        "03") icon="🕞" ;;
-        "04") icon="🕟" ;;
-        "05") icon="🕠" ;;
-        "06") icon="🕡" ;;
-        "07") icon="🕢" ;;
-        "08") icon="🕣" ;;
-        "09") icon="🕤" ;;
-        "10") icon="🕥" ;;
-        "11") icon="🕦" ;;
-        "12") icon="🕧" ;;
-        *) icon="Err!";;
-    esac
+if [ "${hourmin#*;}" -gt 30 ]; then
+    hour="${hourmin%;*}30"
 else
-    case "$hour" in
-        "12") icon="🕐" ;;
-        "00") icon="🕐" ;;
-        "01") icon="🕑" ;;
-        "02") icon="🕒" ;;
-        "03") icon="🕓" ;;
-        "04") icon="🕔" ;;
-        "05") icon="🕕" ;;
-        "06") icon="🕖" ;;
-        "07") icon="🕗" ;;
-        "08") icon="🕘" ;;
-        "09") icon="🕙" ;;
-        "10") icon="🕚" ;;
-        "11") icon="🕛" ;;
-        *) icon="Err!";;
-    esac
+    hour="${hourmin%;*}00"
 fi
+
+case "$hour" in
+    "0000") icon="🕛" ;;
+    "0100") icon="🕐" ;;
+    "0200") icon="🕑" ;;
+    "0300") icon="🕒" ;;
+    "0400") icon="🕓" ;;
+    "0500") icon="🕔" ;;
+    "0600") icon="🕕" ;;
+    "0700") icon="🕖" ;;
+    "0800") icon="🕗" ;;
+    "0900") icon="🕘" ;;
+    "1000") icon="🕙" ;;
+    "1100") icon="🕚" ;;
+    "1200") icon="🕛" ;;
+    "0030") icon="🕜" ;;
+    "0130") icon="🕝" ;;
+    "0230") icon="🕝" ;;
+    "0330") icon="🕞" ;;
+    "0430") icon="🕟" ;;
+    "0530") icon="🕠" ;;
+    "0630") icon="🕡" ;;
+    "0730") icon="🕢" ;;
+    "0830") icon="🕣" ;;
+    "0930") icon="🕤" ;;
+    "1030") icon="🕥" ;;
+    "1130") icon="🕦" ;;
+    "1230") icon="🕧" ;;
+    *) icon="Err!";;
+esac
 
 date "+%a %d %b clk%R" | sed "s/clk/$icon/"

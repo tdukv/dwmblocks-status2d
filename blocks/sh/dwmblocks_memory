@@ -1,11 +1,12 @@
 #!/bin/sh
 
-# tr + cut still faster than awk
-meminfo=$(head -3 /proc/meminfo | tr -s ' ' | cut -d ' ' -f 2)
+meminfo=$(head -3 /proc/meminfo | tr -d '[:alpha:][:space:]')
 
-totl=$(echo "$meminfo" | head -n 1)
-free=$(echo "$meminfo" | sed '2!d')
-avai=$(echo "$meminfo" | tail -n 1)
+temp="${meminfo#:}"
+totl="${temp%%:*}"
+temp="${temp#*:}"
+free="${temp%%:*}"
+avai="${meminfo##*:}"
 
 used=$(((totl-avai)/1024))
 

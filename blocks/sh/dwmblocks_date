@@ -1,7 +1,8 @@
 #!/bin/sh
 
-hour=$(date '+%I')
-min=$(date '+%M')
+hourmin=$(date '+%I;%M')
+hour=${hourmin%;*}
+min=${hourmin#*;}
 
 if [ "$min" -lt "15" ]; then
     case "$hour" in

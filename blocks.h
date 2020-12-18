@@ -48,7 +48,7 @@ static Block blocks[] =
    {fg4,  "dwmblocks_backlight",           0,     15},
    {fg6,  "dwmblocks_battery",            30,      9},
    {fg2,  "dwmblocks_volume",              0,     12},
-   //   {fg6,  "dwmblocks_weather",          1800,     14},
+   {fg6,  "dwmblocks_weather",          1800,     14},
    {fg4,  "dwmblocks_date",               30,      7},
 };
 

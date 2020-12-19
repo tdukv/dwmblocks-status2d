@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", RUN+="/bin/pkill -x -RTMIN+9 dwmblocks"

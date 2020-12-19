@@ -28,6 +28,7 @@ static char bg8[] = "^C0^^B8^ ";
 static Block blocks[] =
   {
    // Sigs:
+   //  5: network
    //  6: cpu
    //  7: date/time
    //  8: diskspace
@@ -49,7 +50,8 @@ static Block blocks[] =
    {fg6,  "dwmblocks_battery",            30,      9},
    {fg2,  "dwmblocks_volume",              0,     12},
    {fg6,  "dwmblocks_weather",          1800,     14},
-   {fg4,  "dwmblocks_date",               30,      7},
+   {fg4,  "dwmblocks_net",                 0,      5},
+   {fg6,  "dwmblocks_date",               30,      7},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

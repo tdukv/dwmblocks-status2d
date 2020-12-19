@@ -3,6 +3,7 @@
 export PATH="PREFIX/bin/dwmblocks:$PATH"
 
 dwmblocks_monitor_mpd &
+dwmblocks_monitor_net &
 
 while : ; do
 	date '+%F %T dwmblocks started'

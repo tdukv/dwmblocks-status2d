@@ -1,0 +1,6 @@
+#!/bin/sh
+while : ; do
+    ip monitor | read -r unused
+    pkill -u "$USER" -x -RTMIN+5 dwmblocks
+    sleep 2 # Do not spam signals when ip spams multiple lines
+done >/dev/null 2>&1

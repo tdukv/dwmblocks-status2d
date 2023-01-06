@@ -2,13 +2,16 @@
 
 [ ! -d /sys/class/power_supply/BAT0 ] && printf "^w^^r0,0,28,19^^f4^^w^^r0,7,2,5^^r2,4,20,11^^w^^r3,5,18,9^^w^^f24^🚫 N/A^d^\n" && exit 0
 
-read -r cap < /sys/class/power_supply/BAT0/capacity
+for BAT in /sys/class/power_supply/BAT* ; do
+    read -r cap < "$BAT/capacity"
 
-fullpx=$((cap/6))
-emptpx=$((20-fullpx))
+    fullpx=$((cap/6))
+    emptpx=$((20-fullpx))
 
-bat="^w^^r0,0,28,19^^f4^^w^^r0,7,2,5^^r2,4,20,11^^w^^r3,5,18,9^^w^^r${emptpx},6,${fullpx},7^^f24^"
+    bat="^w^^r0,0,28,19^^f4^^w^^r0,7,2,5^^r2,4,20,11^^w^^r3,5,18,9^^w^^r${emptpx},6,${fullpx},7^^f24^"
 
-status=$(sed "s/Not charging/🚫/; s/Charging//; s/Discharging/⏬/; s/Unknown/⁉/; s/Full/✔/; s/[A-Za-z]*//" /sys/class/power_supply/BAT0/status)
+    status=$(sed "s/Not charging/🚫/; s/Charging//; s/Discharging/⏬/; s/Unknown/⁉/; s/Full/✔/; s/[A-Za-z]*//" "$BAT/status")
 
-printf "%s%s%3s%%\n" "$bat" "$status" "$cap"
+    printf "%s%s%3s%%\n" "$bat" "$status" "$cap"
+done
+

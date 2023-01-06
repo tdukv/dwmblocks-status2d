@@ -12,6 +12,7 @@ for BAT in /sys/class/power_supply/BAT* ; do
 
     status=$(sed "s/Not charging/🚫/; s/Charging//; s/Discharging/⏬/; s/Unknown/⁉/; s/Full/✔/; s/[A-Za-z]*//" "$BAT/status")
 
-    printf "%s%s%3s%%\n" "$bat" "$status" "$cap"
+    printf "%s%s%3s%%" "$bat" "$status" "$cap"
 done
 
+printf "\n"

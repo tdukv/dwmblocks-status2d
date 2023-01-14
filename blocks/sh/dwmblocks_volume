@@ -1,6 +1,8 @@
 #!/bin/sh
 
-if vol=$(pamixer --get-volume --get-mute) ; then
+vol=$(pamixer --get-volume --get-mute)
+
+if [ -n "${vol%%false*}" ] ; then
     printf "🔇%3s%%\n" "${vol##* }"
 elif [ "${vol##* }" -eq 0 ]; then
     printf "🔇%3s%%\n" "${vol##* }"

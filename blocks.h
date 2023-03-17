@@ -29,7 +29,7 @@ static Block blocks[] =
   {
    // Sigs:
    //  5: network
-   //  6: cpu
+   //  6: layout
    //  7: date/time
    //  8: diskspace
    //  9: battery
@@ -41,17 +41,18 @@ static Block blocks[] =
    // 15: brightness
 
    /*Icon*/ /*Command*/  /*Update Interval*/ /*Update Signal*/
-   {fg6,  "dwmblocks_mpd",                 0,     11},
-   {fg4,  "dwmblocks_disk",              300,      8},
-   {fg6,  "dwmblocks_memory",             30,     10},
-   {fg2,  "dwmblocks_cpu",                10,      6},
+   {fg2,  "dwmblocks_mpd",                 0,     11},
+   /* {fg4,  "dwmblocks_disk",              300,      8}, */
+   /* {fg6,  "dwmblocks_memory",             30,     10}, */
+   /* {fg2,  "dwmblocks_cpu",                10,      6}, */
    {fg6,  "dwmblocks_temp",               10,     13},
    {fg4,  "dwmblocks_backlight",           0,     15},
    {fg6,  "dwmblocks_battery",            30,      9},
    {fg2,  "dwmblocks_volume",              0,     12},
    {fg6,  "dwmblocks_weather",          1800,     14},
    {fg4,  "dwmblocks_net",                 0,      5},
-   {fg6,  "dwmblocks_date",               30,      7},
+   {fg6,  "dwmblocks_layout",              0,      6},
+   {fg2,  "dwmblocks_date",               30,      7},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

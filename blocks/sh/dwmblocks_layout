@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "%s%s\n" "⌨️" "$(setxkbmap -query | sed '/^layout/!d; s/^[^:]*:\s*//')"

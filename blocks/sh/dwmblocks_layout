@@ -1,3 +1,3 @@
 #!/bin/sh
 
-printf "%s%s\n" "⌨️" "$(setxkbmap -query | sed '/^layout/!d; s/^[^:]*:\s*//')"
+printf "%s%s\n" "⌨️" "$(xkblayout-state print "%s")"

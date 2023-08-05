@@ -1,6 +1,8 @@
 # dwmblocks-status2d
 This repo is unmentained, but the sripts are considered complete.
+
 Scripts for dwmblocks made to work with the status2d dwm patch.
+
 All scripts are relatevly unbloated by avoiding slow commands.
 
 ## Screenshot
@@ -8,6 +10,7 @@ All scripts are relatevly unbloated by avoiding slow commands.
 
 # Patches
 The original status2d patch from the suckless wiki is still required.
+These pathces were written for an older version of dwm and status2d, but should merge fine.
 
 * `dwm-status2d-swap-save-restore-6.2.diff`:
 

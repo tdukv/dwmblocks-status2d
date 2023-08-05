@@ -5,6 +5,8 @@ Scripts for dwmblocks made to work with the status2d dwm patch.
 
 All scripts are relatevly unbloated by avoiding slow commands.
 
+Make sure you increase the CMDLENGTH in dwmblocks.c, or it will not fit.
+
 ## Screenshot
 ![Image](screenshot.png)
 
